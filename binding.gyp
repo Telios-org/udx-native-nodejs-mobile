@@ -20,11 +20,11 @@
       },
     },
     'conditions': [
-      ['OS=="android"', {
+      ['OS=="android" or OS=="ios"', {
         'cflags': ['-fPIC'],
         'ldflags': ['-fPIC']
       }, {
-        # Refuse to build anything if OS is not android
+        # Refuse to build anything if OS is not android or iOS
         'type': "none"
       }],
     ],
