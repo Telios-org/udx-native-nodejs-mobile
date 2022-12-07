@@ -1,6 +1,6 @@
 {
   'targets': [{
-    'target_name': 'udx',
+    'target_name': 'udx_native',
     'include_dirs': [
       "<!(node -e \"require('napi-macros')\")",
     ],
