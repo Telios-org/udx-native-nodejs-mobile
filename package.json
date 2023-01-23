@@ -16,9 +16,8 @@
     "test:all": "standard && brittle test/*.js test/slow/*.js",
     "test:generate": "brittle -r test/all.js test/*.js",
     "bench": "node test/bench/bench.js",
-    "prebuild": "prebuild --napi --all --strip --verbose",
-    "install": "prebuild-install || node-gyp rebuild",
-    "rebuild": "prebuild --compile"
+    "prebuild": "prebuildify --napi --strip",
+    "install": "node-gyp-build"
   },
   "repository": {
     "type": "git",
@@ -43,6 +42,7 @@
     "events": "^3.3.0",
     "napi-macros": "^2.0.0",
     "prebuild-install": "^5.2.1",
+    "node-gyp-build": "^4.4.0",
     "streamx": "^2.12.0"
   },
   "devDependencies": {
