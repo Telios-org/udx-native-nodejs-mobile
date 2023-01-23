@@ -2,7 +2,7 @@
   'targets': [{
     'target_name': 'udx_native',
     'include_dirs': [
-      "<!(node -e \"require('napi-macros')\")",
+      '<!(node -e "require(\'napi-macros\')")',
     ],
     'sources': [
       './src/cirbuf.c',
@@ -20,12 +20,17 @@
       },
     },
     'conditions': [
-      ['OS=="android" or OS=="ios"', {
-        'cflags': ['-fPIC'],
-        'ldflags': ['-fPIC']
+      ['OS=="win"', {
+        'sources': [
+          './src/io_win.c',
+        ],
+        'libraries': [
+          '-lws2_32',
+        ]
       }, {
-        # Refuse to build anything if OS is not android or iOS
-        'type': "none"
+        'sources': [
+          './src/io_posix.c',
+        ],
       }],
     ],
     'xcode_settings': {
